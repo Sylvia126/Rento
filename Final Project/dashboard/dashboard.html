@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rento - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/shared/dark.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="/Home_page/home.html">
+                <img src="/rento.png" alt="Rento Logo" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="/Home_page/home.html" class="nav-link ">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </a>
+                <a href="/map/map.html" class="nav-link ">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    Explore
+                </a>
+                <a href="/dashboard/dashboard.html" class="nav-link active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Dashboard
+                </a>
+                <a href="/favorites/favorites.html" class="nav-link ">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    Favorites
+                </a>
+                <a href="/my-rentals/my-rentals.html" class="nav-link ">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    My Rentals
+                </a>
+                <a href="/about/about.html" class="nav-link ">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    About
+                </a>
+            </div>
+            <div class="nav-auth">
+                <a href="/login/login.html" class="btn-login">Login</a>
+                <a href="/signup/sign.html" class="btn-register">Register</a>
+            </div>
+            <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/Home_page/home.html">🏠 Home</a>
+            <a href="/map/map.html">🗺️ Explore</a>
+            <a href="/dashboard/dashboard.html">📊 Dashboard</a>
+            <a href="/favorites/favorites.html">❤️ Favorites</a>
+            <a href="/my-rentals/my-rentals.html">📋 My Rentals</a>
+            <a href="/about/about.html">ℹ️ About</a>
+            <div class="mobile-auth">
+                <a href="/login/login.html" class="btn-login">Login</a>
+                <a href="/signup/sign.html" class="btn-register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-wrapper">
+
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <div class="welcome-text">
+                <h2>Welcome back <span id="userName"></span> 👋</h2>
+                <p>Here's an overview of your rental activity</p>
+            </div>
+            <div class="welcome-avatar">
+                <div class="avatar-circle"></div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-blue">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Active Rentals</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-red">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Saved Favorites</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-green">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number">L.E 30,000</span>
+                    <span class="stat-label">Total Paid (This Month)</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stat-icon-orange">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number">12 days</span>
+                    <span class="stat-label">Until Next Payment</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+
+            <!-- Current Rental -->
+            <div class="dashboard-card">
+                <div class="card-header-title">
+                    <h5>Current Rental</h5>
+                    <a href="/my-rentals/my-rentals.html" class="view-all-link">View All</a>
+                </div>
+                <div class="current-rental-item">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400" alt="Property" class="rental-thumb">
+                    <div class="rental-info">
+                        <h6>Heliopolis Apartment</h6>
+                        <p class="rental-location">📍 Cairo, Heliopolis</p>
+                        <p class="rental-dates">Jan 1 – Jun 30, 2025</p>
+                        <div class="rental-price-row">
+                            <span class="rental-price">L.E 12,000/month</span>
+                            <span class="status-badge badge-active">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="current-rental-item">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400" alt="Property" class="rental-thumb">
+                    <div class="rental-info">
+                        <h6>Banha Villa</h6>
+                        <p class="rental-location">📍 Qalyubia, Banha</p>
+                        <p class="rental-dates">Feb 15 – Aug 14, 2025</p>
+                        <div class="rental-price-row">
+                            <span class="rental-price">L.E 10,000/month</span>
+                            <span class="status-badge badge-active">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="dashboard-card">
+                <div class="card-header-title">
+                    <h5>Payment Summary</h5>
+                    <span class="month-label">May 2025</span>
+                </div>
+                <div class="payment-chart-container">
+                    <canvas id="paymentChart"></canvas>
+                </div>
+                <div class="payment-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot dot-paid"></span>
+                        <span>Paid — L.E 30,000</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot dot-upcoming"></span>
+                        <span>Upcoming — L.E 8,000</span>
+                    </div>
+                </div>
+                <div class="payment-list">
+                    <div class="payment-row">
+                        <div>
+                            <p class="payment-name">Heliopolis Apt.</p>
+                            <p class="payment-date">Paid: May 1, 2025</p>
+                        </div>
+                        <span class="payment-amount paid">L.E 12,000</span>
+                    </div>
+                    <div class="payment-row">
+                        <div>
+                            <p class="payment-name">Banha Villa</p>
+                            <p class="payment-date">Paid: May 1, 2025</p>
+                        </div>
+                        <span class="payment-amount paid">L.E 10,000</span>
+                    </div>
+                    <div class="payment-row">
+                        <div>
+                            <p class="payment-name">Alexandria Studio</p>
+                            <p class="payment-date">Paid: May 1, 2025</p>
+                        </div>
+                        <span class="payment-amount paid">L.E 8,000</span>
+                    </div>
+                    <div class="payment-row upcoming-row">
+                        <div>
+                            <p class="payment-name">Heliopolis Apt.</p>
+                            <p class="payment-date">Due: Jun 1, 2025</p>
+                        </div>
+                        <span class="payment-amount upcoming">L.E 12,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saved Favorites Preview -->
+            <div class="dashboard-card">
+                <div class="card-header-title">
+                    <h5>Saved Favorites</h5>
+                    <a href="/favorites/favorites.html" class="view-all-link">View All</a>
+                </div>
+                <div class="favorites-preview-grid">
+                    <div class="fav-preview-card">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=300" alt="Property">
+                        <div class="fav-overlay">
+                            <p>New Borg El-Arab</p>
+                            <p class="fav-price">L.E 8,000/mo</p>
+                        </div>
+                    </div>
+                    <div class="fav-preview-card">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300" alt="Property">
+                        <div class="fav-overlay">
+                            <p>Maadi, Cairo</p>
+                            <p class="fav-price">L.E 15,000/mo</p>
+                        </div>
+                    </div>
+                    <div class="fav-preview-card">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300" alt="Property">
+                        <div class="fav-overlay">
+                            <p>Zamalek, Cairo</p>
+                            <p class="fav-price">L.E 18,000/mo</p>
+                        </div>
+                    </div>
+                    <div class="fav-preview-card">
+                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=300" alt="Property">
+                        <div class="fav-overlay">
+                            <p>Asyut City</p>
+                            <p class="fav-price">L.E 6,000/mo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card">
+                <div class="card-header-title">
+                    <h5>Recent Activity</h5>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon icon-booking">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="activity-text">
+                            <p><strong>Booking confirmed</strong> — Banha Villa</p>
+                            <span>Feb 14, 2025</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon icon-payment">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="activity-text">
+                            <p><strong>Payment received</strong> — L.E 12,000</p>
+                            <span>May 1, 2025</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon icon-fav">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <div class="activity-text">
+                            <p><strong>Added to favorites</strong> — Zamalek Apartment</p>
+                            <span>Apr 28, 2025</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon icon-booking">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="activity-text">
+                            <p><strong>Booking confirmed</strong> — Alexandria Studio</p>
+                            <span>Mar 10, 2025</span>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon icon-payment">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                        </div>
+                        <div class="activity-text">
+                            <p><strong>Payment received</strong> — L.E 8,000</p>
+                            <span>Apr 1, 2025</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-email">rento@gmail.com</div>
+        <div class="footer-copyright">© 2025 rento. All rights reserved.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="/shared/auth.js"></script>
+    <script>applyDarkMode(); document.addEventListener("DOMContentLoaded", () => renderNav("dashboard"));</script>
+</body>
+</html>
